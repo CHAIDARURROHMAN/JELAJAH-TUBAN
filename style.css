@@ -69,6 +69,7 @@ body {
     color: #888;
 }
 
+/* Penataan Card Hasil */
 .result-card {
     background-color: white;
     border-radius: 8px;
@@ -77,16 +78,36 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     display: flex;
     gap: 15px;
-    align-items: center;
+    /* Ubah alignment agar konten sesuai dengan gambar ganda */
+    align-items: flex-start; /* Pastikan konten rata atas dengan gambar/grid */
 }
 
-.result-card img {
+/* Style untuk gambar tunggal (child langsung dari .result-card) */
+.result-card > img { 
     width: 120px;
     height: 90px;
     object-fit: cover;
     border-radius: 4px;
 }
 
+/* STYLE BARU: Untuk menata dua foto dalam satu kolom */
+.card-images-grid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* Membuat dua kolom dengan lebar yang sama */
+    gap: 5px; /* Jarak antar gambar */
+    width: 250px; /* Atur lebar total untuk area dua gambar */
+    height: 90px; /* Atur tinggi total agar sejajar dengan tinggi gambar tunggal */
+}
+
+/* Style untuk gambar di dalam grid */
+.card-images-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Style Konten Teks */
 .card-content h3 {
     margin: 0 0 5px 0;
     color: #007bff;
