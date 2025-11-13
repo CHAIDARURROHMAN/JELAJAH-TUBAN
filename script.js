@@ -25,6 +25,11 @@ const dataWisataTuban = {
         { nama: "Tuban Plaza", deskripsi: "Pusat perbelanjaan terbesar di Tuban.", gambar: "TubanPlaza.jpg" },
         { nama: "Toserba Basmalah", deskripsi: "Toko serba ada yang lengkap.", gambar: "Basmalah.jpg" }
     ]
+    pendidikan: [
+        { nama: "Universitas PGRI Ronggolawe (UNIROW)", deskripsi: "Perguruan tinggi terbesar di Tuban.", gambar: "UNIROW.jpg" },
+        { nama: "SMAN 1 Tuban", deskripsi: "Sekolah menengah atas favorit di kota.", gambar: "SMAN1.jpg" },
+        { nama: "Pondok Pesantren Langitan", deskripsi: "Salah satu pondok pesantren tertua dan terbesar.", gambar: "Langitan.jpg" }
+    ]
 };
 
 // 2. Fungsi untuk Menampilkan Hasil Pencarian
