@@ -1,7 +1,12 @@
 // 1. Data Dummy (Contoh) untuk semua kategori
 const dataWisataTuban = {
     wisata: [
-        { nama: "Pantai Kelapa", deskripsi: "Hamparan pohon kelapa yang rindang.", gambar: "PantaiKelapa1.jpg","PantaiKelapa2.jpg" }, //menambahkan lebih dari 1 foto pada 1 kolom
+        // DUA FOTO: Menggunakan array [] untuk menyimpan lebih dari satu nama gambar
+        { 
+            nama: "Pantai Kelapa", 
+            deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
+            gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.jpg"] // Item ini akan menampilkan dua foto
+        },
         { nama: "Air Terjun Nglirip", deskripsi: "Air terjun yang indah dengan kolam biru.", gambar: "Nglirip.jpg" },
         { nama: "Goa Akbar", deskripsi: "Gua alami yang luas di pusat kota.", gambar: "GoaAkbar.jpg" }
     ],
@@ -24,7 +29,8 @@ const dataWisataTuban = {
     mall: [
         { nama: "Tuban Plaza", deskripsi: "Pusat perbelanjaan terbesar di Tuban.", gambar: "TubanPlaza.jpg" },
         { nama: "Toserba Basmalah", deskripsi: "Toko serba ada yang lengkap.", gambar: "Basmalah.jpg" }
-    ]
+    ],
+    // Kategori Pendidikan
     pendidikan: [
         { nama: "Universitas PGRI Ronggolawe (UNIROW)", deskripsi: "Perguruan tinggi terbesar di Tuban.", gambar: "UNIROW.jpg" },
         { nama: "SMAN 1 Tuban", deskripsi: "Sekolah menengah atas favorit di kota.", gambar: "SMAN1.jpg" },
@@ -32,23 +38,36 @@ const dataWisataTuban = {
     ]
 };
 
-// 2. Fungsi untuk Menampilkan Hasil Pencarian
+// 2. Fungsi untuk Menampilkan Hasil Pencarian (dengan dukungan multiple gambar)
 function displayResults(category) {
     const container = document.getElementById('results-container');
-    const items = dataWisataTuban[category]; // Ambil data sesuai kategori yang dipilih
+    const items = dataWisataTuban[category]; 
 
     // Bersihkan konten sebelumnya
     container.innerHTML = ''; 
 
     if (items && items.length > 0) {
         items.forEach(item => {
-            // Buat elemen card baru
             const card = document.createElement('div');
-            card.className = 'result-card'; // Terapkan styling CSS
-
-            // Isi card dengan HTML untuk gambar dan konten
+            card.className = 'result-card'; 
+            
+            // LOGIKA MENENTUKAN GAMBAR
+            let imagesHtml = '';
+            if (Array.isArray(item.gambar)) {
+                // Jika gambar adalah array (multiple), buat div grid
+                imagesHtml = '<div class="card-images-grid">';
+                item.gambar.forEach(imgName => {
+                    imagesHtml += `<img src="images/${imgName}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
+                });
+                imagesHtml += '</div>';
+            } else {
+                // Jika gambar hanya string (tunggal), tampilkan tag img tunggal
+                imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
+            }
+            
+            // Isi card dengan HTML untuk gambar/grid dan konten
             card.innerHTML = `
-                <img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">
+                ${imagesHtml}
                 <div class="card-content">
                     <h3>${item.nama}</h3>
                     <p>${item.deskripsi}</p>
@@ -65,16 +84,16 @@ function displayResults(category) {
 
 // 3. Menghubungkan Tombol Menu dengan Fungsi Display
 document.addEventListener('DOMContentLoaded', () => {
-    const menuButtons = document.querySelectorAll('.menu-item'); // Ambil semua tombol dengan class .menu-item
+    const menuButtons = document.querySelectorAll('.menu-item'); 
     
     menuButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const category = button.getAttribute('data-category'); // Dapatkan nilai data-category
-            displayResults(category); // Panggil fungsi untuk menampilkan hasil
+            const category = button.getAttribute('data-category'); 
+            displayResults(category); 
         });
     });
 
-    // Opsional: Atur sambutan dinamis berdasarkan waktu (Contoh sederhana)
+    // Opsional: Atur sambutan dinamis berdasarkan waktu 
     const hour = new Date().getHours();
     let greeting;
     if (hour < 12) {
