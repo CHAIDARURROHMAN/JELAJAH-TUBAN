@@ -1,7 +1,7 @@
 // 1. Data Dummy (Contoh) untuk semua kategori
 const dataWisataTuban = {
     wisata: [
-        { nama: "Pantai Kelapa", deskripsi: "Hamparan pohon kelapa yang rindang.", gambar: "PantaiKelapa.jpg" },
+        { nama: "Pantai Kelapa", deskripsi: "Hamparan pohon kelapa yang rindang.", gambar: "PantaiKelapa1.jpg","PantaiKelapa2.jpg" }, //menambahkan lebih dari 1 foto pada 1 kolom
         { nama: "Air Terjun Nglirip", deskripsi: "Air terjun yang indah dengan kolam biru.", gambar: "Nglirip.jpg" },
         { nama: "Goa Akbar", deskripsi: "Gua alami yang luas di pusat kota.", gambar: "GoaAkbar.jpg" }
     ],
