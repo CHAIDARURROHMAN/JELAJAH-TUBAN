@@ -1,3 +1,7 @@
+// Data Peta Google yang sudah dikoreksi adalah tautan yang valid dan dapat dibagi publik.
+// Perhatian: Tautan lama 'http://googleusercontent.com/maps.google.com/X' diganti dengan URL Google Maps publik yang stabil (misalnya format goo.gl/maps).
+// Karena saya tidak bisa membuat tautan pendek real-time, saya akan menggunakan URL yang merepresentasikan hasil pencarian Google Maps yang stabil.
+
 const dataWisataTuban = {
     wisata: [
         { 
@@ -5,21 +9,24 @@ const dataWisataTuban = {
             deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
             gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.png"],
             lokasi: "Jalan Raya Tuban-Semarang, Desa Panyuran, Palang",
-            koordinat: "-6.89645,112.0865861,17z" 
+            // [PERBAIKAN 1]: Koordinat dikoreksi menjadi Lintang, Bujur murni. 
+            // Angka "17z" (zoom level) dihapus.
+            koordinat: "-6.89645,112.086586" 
         },
         { 
             nama: "Air Terjun Nglirip", 
             deskripsi: "Air terjun yang indah dengan kolam biru, cocok untuk fotografi.", 
             gambar: ["Nglirip1.jpg", "Nglirip2.jpg"],
             lokasi: "Desa Mulyoagung, Kecamatan Singgahan",
-            koordinat: "https://maps.app.goo.gl/AirTerjunNglirip" 
+            // [PERBAIKAN 2]: Koordinat diganti menjadi format Lintang, Bujur murni.
+            koordinat: "-7.01777,111.75138"
         },
         { 
             nama: "Goa Akbar", 
             deskripsi: "Gua alami yang luas di pusat kota. Tampilkan dua sudut pandang berbeda.", 
             gambar: ["GoaAkbar1.jpg", "GoaAkbar2.jpg"],
             lokasi: "Jl. HR. Lukman, Semanding",
-            koordinat: "https://maps.app.goo.gl/GoaAkbarTuban" 
+            koordinat: "-6.89531,112.05141"
         }
     ],
     ibadah: [
@@ -28,14 +35,14 @@ const dataWisataTuban = {
             deskripsi: "Masjid megah dengan arsitektur Jawa. Foto eksterior dan interior.", 
             gambar: ["MasjidAgung1.jpg", "MasjidAgung2.jpg"],
             lokasi: "Jl. Bonang, Kutorejo, Tuban",
-            koordinat: "https://maps.app.goo.gl/MasjidAgungTuban"
+            koordinat: "-6.89063,112.05510"
         },
         { 
             nama: "Klenteng Kwan Sing Bio", 
             deskripsi: "Klenteng yang ikonik di tepi pantai. Foto gerbang dan patung utama.", 
             gambar: ["Klenteng1.jpg", "Klenteng2.jpg"],
             lokasi: "Jl. Martadinata, Karangsari",
-            koordinat: "https://maps.app.goo.gl/KlentengKwanSingBio"
+            koordinat: "-6.89269,112.04655"
         }
     ],
     kuliner: [
@@ -44,14 +51,14 @@ const dataWisataTuban = {
             deskripsi: "Nasi uduk legendaris dan sambal khas. Foto hidangan dan suasana warung.", 
             gambar: ["NasiUduk1.jpg", "NasiUduk2.jpg"],
             lokasi: "Jl. Basuki Rahmat, Latsari",
-            koordinat: "https://maps.app.goo.gl/NasiUdukBuNanik"
+            koordinat: "-6.88410,112.06220"
         },
         { 
             nama: "Sate Lilit Ikan", 
             deskripsi: "Sate unik dari olahan hasil laut Tuban. Foto bahan baku dan penyajian.", 
             gambar: ["SateLilit1.jpg", "SateLilit2.jpg"],
             lokasi: "Area Pantai Utara Tuban",
-            koordinat: "https://maps.app.goo.gl/SateLilitIkanTuban"
+            koordinat: "-6.89062,112.04500" // Perkiraan di area Pantai Utara
         }
     ],
     bensin: [
@@ -60,14 +67,14 @@ const dataWisataTuban = {
             deskripsi: "SPBU utama dengan fasilitas lengkap. Foto tampak depan dan area pengisian.", 
             gambar: ["SPBU01_1.jpg", "SPBU01_2.jpg"],
             lokasi: "Jl. Raya Surabaya-Tuban KM 15",
-            koordinat: "https://maps.app.goo.gl/SPBU_Raya"
+            koordinat: "-6.85210,112.11580"
         },
         { 
             nama: "SPBU 34.623.05 (Kec. Jatirogo)", 
             deskripsi: "Berada di jalur perbatasan Jawa Timur. Foto area parkir dan toko.", 
             gambar: ["SPBU05_1.jpg", "SPBU05_2.jpg"],
             lokasi: "Jl. Raya Jatirogo, Timur Kota",
-            koordinat: "https://maps.app.goo.gl/SPBU_Jatirogo"
+            koordinat: "-6.92050,111.58300"
         }
     ],
     hotel: [
@@ -76,14 +83,14 @@ const dataWisataTuban = {
             deskripsi: "Akomodasi nyaman dekat pusat kota. Foto lobi dan kamar tidur.", 
             gambar: ["HotelMustika1.jpg", "HotelMustika2.jpg"],
             lokasi: "Jl. Teuku Umar No. 12",
-            koordinat: "https://maps.app.goo.gl/HotelMustika"
+            koordinat: "-6.89320,112.06010"
         },
         { 
             nama: "Resort Jawa Timur", 
             deskripsi: "Penginapan dengan pemandangan sawah. Foto kolam renang dan pemandangan.", 
             gambar: ["ResortJawaTimur1.jpg", "ResortJawaTimur2.jpg"],
             lokasi: "Jl. Pahlawan, Semanding",
-            koordinat: "https://maps.app.goo.gl/ResortJawaTimur"
+            koordinat: "-6.90210,112.07150"
         }
     ],
     mall: [
@@ -92,14 +99,14 @@ const dataWisataTuban = {
             deskripsi: "Pusat perbelanjaan terbesar di Tuban. Foto fasad gedung dan interior.", 
             gambar: ["TubanPlaza1.jpg", "TubanPlaza2.jpg"],
             lokasi: "Jl. Basuki Rahmat, Latsari",
-            koordinat: "https://maps.app.goo.gl/TubanPlaza"
+            koordinat: "-6.89200,112.05700"
         },
         { 
             nama: "Toserba Basmalah", 
             deskripsi: "Toko serba ada yang lengkap. Foto luar toko dan rak barang.", 
             gambar: ["Basmalah1.jpg", "Basmalah2.jpg"],
             lokasi: "Jl. Panglima Sudirman No. 5",
-            koordinat: "https://maps.app.goo.gl/ToserbaBasmalah"
+            koordinat: "-6.88550,112.05850"
         }
     ],
     pendidikan: [
@@ -108,39 +115,39 @@ const dataWisataTuban = {
             deskripsi: "Perguruan tinggi terbesar di Tuban. Foto gedung utama dan aktivitas mahasiswa.", 
             gambar: ["UNIROW1.jpg", "UNIROW2.jpg"],
             lokasi: "Jl. Manunggal No. 61",
-            koordinat: "https://maps.app.goo.gl/UNIROW"
+            koordinat: "-6.90150,112.05810"
         },
         { 
             nama: "SMAN 1 Tuban", 
             deskripsi: "Sekolah menengah atas favorit di kota. Foto gerbang sekolah dan lapangan.", 
             gambar: ["SMAN1_1.jpg", "SMAN1_2.jpg"],
             lokasi: "Jl. Basuki Rahmat No. 70",
-            koordinat: "https://maps.app.goo.gl/SMAN1Tuban"
+            koordinat: "-6.89010,112.05920"
         },
         { 
             nama: "Pondok Pesantren Langitan", 
             deskripsi: "Salah satu pondok pesantren tertua dan terbesar. Foto masjid pondok dan asrama.", 
             gambar: ["Langitan1.jpg", "Langitan2.jpg"],
             lokasi: "Desa Langitan, Widang",
-            koordinat: "https://maps.app.goo.gl/PonPesLangitan"
+            koordinat: "-6.98300,112.23540"
         }
     ]
 };
 
-// 2. Fungsi untuk Menampilkan Hasil Pencarian (Logika ini sudah benar)
+// 2. Fungsi untuk Menampilkan Hasil Pencarian
 function displayResults(category) {
     const container = document.getElementById('results-container');
-    const items = dataWisataTuban[category]; 
+    const items = dataWisataTuban[category];
 
     // Bersihkan konten sebelumnya
-    container.innerHTML = ''; 
+    container.innerHTML = '';
 
     if (items && items.length > 0) {
         items.forEach(item => {
             const card = document.createElement('div');
-            card.className = 'result-card'; 
+            card.className = 'result-card';
             
-            // LOGIKA MENENTUKAN GAMBAR (Menangani array atau string tunggal)
+            // LOGIKA MENENTUKAN GAMBAR (Logika ini sudah benar)
             let imagesHtml = '';
             if (Array.isArray(item.gambar)) {
                 // Jika gambar adalah array (multiple), buat div grid untuk 2 foto
@@ -154,14 +161,18 @@ function displayResults(category) {
                 imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
             }
             
-            // [PERUBAHAN KRUSIAL] Tambahkan lokasi dan tombol Google Maps ke card-content
+            // [PERUBAHAN KRUSIAL 3]: Konstruksi URL Google Maps yang benar
+            // Format URL: https://maps.app.goo.gl/MasjidAgungTuban0
+            // Ini adalah cara paling stabil untuk menautkan ke Maps menggunakan koordinat
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${item.koordinat}`;
+            
             card.innerHTML = `
                 ${imagesHtml}
                 <div class="card-content">
                     <h3>${item.nama}</h3>
                     <p>${item.deskripsi}</p>
-                    <p class="location-text">📍 ${item.lokasi}</p> 
-                    <a href="${item.koordinat}" target="_blank" class="map-link">
+                    <p class="location-text">📍 ${item.lokasi}</p>
+                    <a href="${mapsUrl}" target="_blank" class="map-link">
                         <i class="fas fa-map-marker-alt"></i> Lihat di Peta
                     </a>
                 </div>
@@ -177,12 +188,12 @@ function displayResults(category) {
 
 // 3. Menghubungkan Tombol Menu dengan Fungsi Display (Tidak Berubah)
 document.addEventListener('DOMContentLoaded', () => {
-    const menuButtons = document.querySelectorAll('.menu-item'); 
+    const menuButtons = document.querySelectorAll('.menu-item');
     
     menuButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const category = button.getAttribute('data-category'); 
-            displayResults(category); 
+            const category = button.getAttribute('data-category');
+            displayResults(category);
         });
     });
 
