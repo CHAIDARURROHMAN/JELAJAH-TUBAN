@@ -5,7 +5,7 @@ const dataWisataTuban = {
         { 
             nama: "Pantai Kelapa", 
             deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
-            gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.jpg"]
+            gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.png"]
         },
         { 
             nama: "Air Terjun Nglirip", 
