@@ -11,7 +11,7 @@ const dataWisataTuban = {
             lokasi: "Jalan Raya Tuban-Semarang, Desa Panyuran, Palang",
             // [PERBAIKAN 1]: Koordinat dikoreksi menjadi Lintang, Bujur murni. 
             // Angka "17z" (zoom level) dihapus.
-            koordinat: "-6.89645,112.086586" 
+            koordinat: "-6.89637591153712, 112.08919421804241" 
         },
         { 
             nama: "Air Terjun Nglirip", 
