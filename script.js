@@ -5,7 +5,7 @@ const dataWisataTuban = {
             deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
             gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.png"],
             lokasi: "Jalan Raya Tuban-Semarang, Desa Panyuran, Palang",
-            koordinat: "https://maps.app.goo.gl/y97GZVR5K2wix7iL8" 
+            koordinat: "433Q+CM Panyuran, Kabupaten Tuban, Jawa Timur" 
         },
         { 
             nama: "Air Terjun Nglirip", 
