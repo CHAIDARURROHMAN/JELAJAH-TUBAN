@@ -1,5 +1,5 @@
-const dataKotaTuban = {
-    kota: [
+const dataWisataTuban = {
+    wisata: [
         { 
             nama: "Pantai Kelapa", 
             deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
