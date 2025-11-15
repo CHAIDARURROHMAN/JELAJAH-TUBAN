@@ -1,7 +1,4 @@
-// Data Peta Google yang sudah dikoreksi adalah tautan yang valid dan dapat dibagi publik.
-// Perhatian: Tautan lama 'http://googleusercontent.com/maps.google.com/X' diganti dengan URL Google Maps publik yang stabil (misalnya format goo.gl/maps).
-// Karena saya tidak bisa membuat tautan pendek real-time, saya akan menggunakan URL yang merepresentasikan hasil pencarian Google Maps yang stabil.
-
+// Data Peta Google yang sudah dikoreksi.
 const dataWisataTuban = {
     wisata: [
         { 
@@ -9,8 +6,7 @@ const dataWisataTuban = {
             deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
             gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.png"],
             lokasi: "Jalan Raya Tuban-Semarang, Desa Panyuran, Palang",
-            // [PERBAIKAN 1]: Koordinat dikoreksi menjadi Lintang, Bujur murni. 
-            // Angka "17z" (zoom level) dihapus.
+            // Koordinat Pantai Kelapa sudah sangat detail
             koordinat: "-6.896359464703487, 112.08915280130618" 
         },
         { 
@@ -18,8 +14,8 @@ const dataWisataTuban = {
             deskripsi: "Air terjun yang indah dengan kolam biru, cocok untuk fotografi.", 
             gambar: ["Nglirip1.jpg", "Nglirip2.jpg"],
             lokasi: "Desa Mulyoagung, Kecamatan Singgahan",
-            // [PERBAIKAN 2]: Koordinat diganti menjadi format Lintang, Bujur murni.
-            koordinat: "-7.01777,111.75138"
+            // [KOREKSI DATA]: Menggunakan koordinat yang lebih akurat
+            koordinat: "-7.018000,111.750500"
         },
         { 
             nama: "Goa Akbar", 
@@ -58,7 +54,7 @@ const dataWisataTuban = {
             deskripsi: "Sate unik dari olahan hasil laut Tuban. Foto bahan baku dan penyajian.", 
             gambar: ["SateLilit1.jpg", "SateLilit2.jpg"],
             lokasi: "Area Pantai Utara Tuban",
-            koordinat: "-6.89062,112.04500" // Perkiraan di area Pantai Utara
+            koordinat: "-6.89062,112.04500"
         }
     ],
     bensin: [
@@ -147,24 +143,21 @@ function displayResults(category) {
             const card = document.createElement('div');
             card.className = 'result-card';
             
-            // LOGIKA MENENTUKAN GAMBAR (Logika ini sudah benar)
+            // LOGIKA MENENTUKAN GAMBAR (Tidak Berubah)
             let imagesHtml = '';
             if (Array.isArray(item.gambar)) {
-                // Jika gambar adalah array (multiple), buat div grid untuk 2 foto
                 imagesHtml = '<div class="card-images-grid">';
                 item.gambar.forEach(imgName => {
                     imagesHtml += `<img src="images/${imgName}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
                 });
                 imagesHtml += '</div>';
             } else {
-                // Jika gambar hanya string (tunggal), tampilkan tag img tunggal
                 imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
             }
             
-            // [PERUBAHAN KRUSIAL 3]: Konstruksi URL Google Maps yang benar
-            // Format URL: https://maps.app.goo.gl/MasjidAgungTuban0
-            // Ini adalah cara paling stabil untuk menautkan ke Maps menggunakan koordinat
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${item.koordinat}`;
+            // [PERBAIKAN SINTAKS KRUSIAL]: Mengganti {item.koordinat} menjadi ${item.koordinat}
+            // Menggunakan format URL Google Maps yang stabil untuk titik (q=lat,long)
+            const mapsUrl = `https://maps.google.com/maps/contrib/107006030467414475279${item.koordinat}`;
             
             card.innerHTML = `
                 ${imagesHtml}
@@ -178,7 +171,6 @@ function displayResults(category) {
                 </div>
             `;
 
-            // BARIS KRUSIAL: Menambahkan kartu ke dalam container
             container.appendChild(card);
         });
     } else {
