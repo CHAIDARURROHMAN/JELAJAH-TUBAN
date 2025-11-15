@@ -7,7 +7,7 @@ const dataWisataTuban = {
             gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.png"],
             lokasi: "Jalan Raya Tuban-Semarang, Desa Panyuran, Palang",
             // Koordinat Pantai Kelapa sudah sangat detail
-            koordinat: "-6.896359464703487, 112.08915280130618" 
+            koordinat: "-6.896359464703487,112.08915280130618" 
         },
         { 
             nama: "Air Terjun Nglirip", 
@@ -155,9 +155,9 @@ function displayResults(category) {
                 imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
             }
             
-            // [PERBAIKAN SINTAKS KRUSIAL]: Mengganti {item.koordinat} menjadi ${item.koordinat}
-            // Menggunakan format URL Google Maps yang stabil untuk titik (q=lat,long)
-            const mapsUrl = `https://maps.google.com/maps/contrib/107006030467414475279${item.koordinat}`;
+            // [PERBAIKAN FINAL]: Mengganti prefix URL yang rusak dengan format Google Maps yang stabil.
+            // Sintaks template literal (${}) juga sudah diperbaiki.
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${item.koordinat}`;
             
             card.innerHTML = `
                 ${imagesHtml}
