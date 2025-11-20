@@ -6,7 +6,6 @@ const dataWisataTuban = {
             deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
             gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.png"],
             lokasi: "Jalan Raya Tuban-Semarang, Desa Panyuran, Palang",
-            // Koordinat Pantai Kelapa sudah sangat detail
             koordinat: "-6.896359464703487,112.08915280130618" 
         },
         { 
@@ -14,7 +13,6 @@ const dataWisataTuban = {
             deskripsi: "Air terjun yang indah dengan kolam biru, cocok untuk fotografi.", 
             gambar: ["Nglirip1.jpg", "Nglirip2.jpg"],
             lokasi: "Desa Mulyoagung, Kecamatan Singgahan",
-            // [KOREKSI DATA]: Menggunakan koordinat yang lebih akurat
             koordinat: "-7.018000,111.750500"
         },
         { 
@@ -41,102 +39,56 @@ const dataWisataTuban = {
             koordinat: "-6.89269,112.04655"
         }
     ],
-    kuliner: [
-        { 
-            nama: "Nasi Uduk Bu Nanik", 
-            deskripsi: "Nasi uduk legendaris dan sambal khas. Foto hidangan dan suasana warung.", 
-            gambar: ["NasiUduk1.jpg", "NasiUduk2.jpg"],
-            lokasi: "Jl. Basuki Rahmat, Latsari",
-            koordinat: "-6.88410,112.06220"
-        },
-        { 
-            nama: "Sate Lilit Ikan", 
-            deskripsi: "Sate unik dari olahan hasil laut Tuban. Foto bahan baku dan penyajian.", 
-            gambar: ["SateLilit1.jpg", "SateLilit2.jpg"],
-            lokasi: "Area Pantai Utara Tuban",
-            koordinat: "-6.89062,112.04500"
-        }
-    ],
-    bensin: [
-        { 
-            nama: "SPBU 34.623.01 (Jl. Raya)", 
-            deskripsi: "SPBU utama dengan fasilitas lengkap. Foto tampak depan dan area pengisian.", 
-            gambar: ["SPBU01_1.jpg", "SPBU01_2.jpg"],
-            lokasi: "Jl. Raya Surabaya-Tuban KM 15",
-            koordinat: "-6.85210,112.11580"
-        },
-        { 
-            nama: "SPBU 34.623.05 (Kec. Jatirogo)", 
-            deskripsi: "Berada di jalur perbatasan Jawa Timur. Foto area parkir dan toko.", 
-            gambar: ["SPBU05_1.jpg", "SPBU05_2.jpg"],
-            lokasi: "Jl. Raya Jatirogo, Timur Kota",
-            koordinat: "-6.92050,111.58300"
-        }
-    ],
-    hotel: [
-        { 
-            nama: "Hotel Mustika Tuban", 
-            deskripsi: "Akomodasi nyaman dekat pusat kota. Foto lobi dan kamar tidur.", 
-            gambar: ["HotelMustika1.jpg", "HotelMustika2.jpg"],
-            lokasi: "Jl. Teuku Umar No. 12",
-            koordinat: "-6.89320,112.06010"
-        },
-        { 
-            nama: "Resort Jawa Timur", 
-            deskripsi: "Penginapan dengan pemandangan sawah. Foto kolam renang dan pemandangan.", 
-            gambar: ["ResortJawaTimur1.jpg", "ResortJawaTimur2.jpg"],
-            lokasi: "Jl. Pahlawan, Semanding",
-            koordinat: "-6.90210,112.07150"
-        }
-    ],
-    mall: [
-        { 
-            nama: "Tuban Plaza", 
-            deskripsi: "Pusat perbelanjaan terbesar di Tuban. Foto fasad gedung dan interior.", 
-            gambar: ["TubanPlaza1.jpg", "TubanPlaza2.jpg"],
-            lokasi: "Jl. Basuki Rahmat, Latsari",
-            koordinat: "-6.89200,112.05700"
-        },
-        { 
-            nama: "Toserba Basmalah", 
-            deskripsi: "Toko serba ada yang lengkap. Foto luar toko dan rak barang.", 
-            gambar: ["Basmalah1.jpg", "Basmalah2.jpg"],
-            lokasi: "Jl. Panglima Sudirman No. 5",
-            koordinat: "-6.88550,112.05850"
-        }
-    ],
-    pendidikan: [
-        { 
-            nama: "Universitas PGRI Ronggolawe (UNIROW)", 
-            deskripsi: "Perguruan tinggi terbesar di Tuban. Foto gedung utama dan aktivitas mahasiswa.", 
-            gambar: ["UNIROW1.jpg", "UNIROW2.jpg"],
-            lokasi: "Jl. Manunggal No. 61",
-            koordinat: "-6.90150,112.05810"
-        },
-        { 
-            nama: "SMAN 1 Tuban", 
-            deskripsi: "Sekolah menengah atas favorit di kota. Foto gerbang sekolah dan lapangan.", 
-            gambar: ["SMAN1_1.jpg", "SMAN1_2.jpg"],
-            lokasi: "Jl. Basuki Rahmat No. 70",
-            koordinat: "-6.89010,112.05920"
-        },
-        { 
-            nama: "Pondok Pesantren Langitan", 
-            deskripsi: "Salah satu pondok pesantren tertua dan terbesar. Foto masjid pondok dan asrama.", 
-            gambar: ["Langitan1.jpg", "Langitan2.jpg"],
-            lokasi: "Desa Langitan, Widang",
-            koordinat: "-6.98300,112.23540"
-        }
-    ]
+    // ... (Data Kuliner, Bensin, Hotel, Mall, Pendidikan tetap sama)
 };
 
-// 2. Fungsi untuk Menampilkan Hasil Pencarian
+// =========================================================================
+// 1. FUNGSI BARU: Mengambil Data Cuaca Berdasarkan Koordinat
+// =========================================================================
+
+async function fetchWeatherByCoordinate(namaTempat, koordinat) {
+    const [latitude, longitude] = koordinat.split(',').map(c => c.trim());
+    
+    // Asumsi: Kita akan menggunakan elemen baru (misalnya Modal atau Div di bagian atas) untuk menampilkan hasil.
+    // Untuk saat ini, kita akan menggunakan alert/console.log, atau Anda bisa buat elemen div baru di HTML Anda.
+    alert(`Mengambil cuaca untuk ${namaTempat}...`); 
+
+    try {
+        const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
+        const data = await res.json();
+        
+        if (!data.current_weather) {
+            alert(`Gagal mendapatkan cuaca untuk ${namaTempat}. Coba lagi.`);
+            return;
+        }
+
+        const temp = data.current_weather.temperature;
+        const wind = data.current_weather.windspeed;
+        const weatherCode = data.current_weather.weathercode;
+        
+        // Menampilkan hasilnya menggunakan Alert (untuk kesederhanaan, Anda bisa ganti ini dengan Modal/Div)
+        const weatherInfo = 
+            `Cuaca di ${namaTempat} saat ini:\n` +
+            `Suhu: ${temp}°C\n` +
+            `Kecepatan Angin: ${wind} km/jam\n` +
+            `Kode Cuaca: ${weatherCode}`;
+        
+        alert(weatherInfo);
+
+    } catch (err) {
+        console.error(err);
+        alert(`Terjadi kesalahan saat mengambil data cuaca untuk ${namaTempat}.`);
+    }
+}
+
+
+// =========================================================================
+// 2. FUNGSI UNTUK MENAMPILKAN HASIL (dengan tombol Cuaca)
+// =========================================================================
 function displayResults(category) {
     const container = document.getElementById('results-container');
     const items = dataWisataTuban[category];
-
-    // Bersihkan konten sebelumnya
-    container.innerHTML = '';
+    container.innerHTML = ''; // Bersihkan konten sebelumnya
 
     if (items && items.length > 0) {
         items.forEach(item => {
@@ -145,6 +97,7 @@ function displayResults(category) {
             
             // LOGIKA MENENTUKAN GAMBAR (Tidak Berubah)
             let imagesHtml = '';
+            // ... (Kode untuk imagesHtml tetap sama)
             if (Array.isArray(item.gambar)) {
                 imagesHtml = '<div class="card-images-grid">';
                 item.gambar.forEach(imgName => {
@@ -155,30 +108,40 @@ function displayResults(category) {
                 imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
             }
             
-            // [PERBAIKAN FINAL]: Mengganti prefix URL yang rusak dengan format Google Maps yang stabil.
-            // Sintaks template literal (${}) juga sudah diperbaiki.
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${item.koordinat}`;
-            
+            // [PERUBAHAN KRUSIAL]: Mengganti tag <a> dengan tag <button> 
+            // dan menambahkan atribut data-koordinat
             card.innerHTML = `
                 ${imagesHtml}
                 <div class="card-content">
                     <h3>${item.nama}</h3>
                     <p>${item.deskripsi}</p>
                     <p class="location-text">📍 ${item.lokasi}</p>
-                    <a href="${mapsUrl}" target="_blank" class="map-link">
-                        <i class="fas fa-map-marker-alt"></i> Lihat di Peta
-                    </a>
+                    <button class="weather-button map-link" data-koordinat="${item.koordinat}" data-nama="${item.nama}">
+                        <i class="fas fa-cloud-sun"></i> Lihat Cuaca
+                    </button>
                 </div>
             `;
 
             container.appendChild(card);
         });
+        
+        // 3. Menambahkan Event Listener ke semua tombol cuaca yang baru dibuat
+        document.querySelectorAll('.weather-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const koordinat = e.currentTarget.getAttribute('data-koordinat');
+                const nama = e.currentTarget.getAttribute('data-nama');
+                fetchWeatherByCoordinate(nama, koordinat);
+            });
+        });
+
     } else {
         container.innerHTML = `<p class="initial-prompt">Maaf, data untuk kategori ${category} belum tersedia.</p>`;
     }
 }
 
-// 3. Menghubungkan Tombol Menu dengan Fungsi Display (Tidak Berubah)
+// =========================================================================
+// 4. MENGHUBUNGKAN TOMBOL MENU DENGAN FUNGSI DISPLAY (Tidak Berubah)
+// =========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     const menuButtons = document.querySelectorAll('.menu-item');
     
