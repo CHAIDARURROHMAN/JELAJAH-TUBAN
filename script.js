@@ -153,9 +153,9 @@ function displayResults(category) {
                 imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
             }
             
-            // PERBAIKAN SINTAKSIS KRUSIAL: MENGGUNAKAN ${item.koordinat}
-            // Format URL stabil (q=query search)
-            const mapsUrl = `https://maps.app.goo.gl/SPBU_Raya9{item.koordinat}`;
+            // PERBAIKAN SINTAKSIS KRUSIAL DAN URL STABIL
+            // PASTIKAN MENGGUNAKAN BACKTICKS (`) dan TANDA DOLAR (${})
+            const mapsUrl = `https://maps.app.goo.gl/SPBU_Jatirogo2{item.koordinat}`;
             
             // Menggunakan tag <a> (tautan) dengan teks "Lihat di Peta"
             card.innerHTML = `
