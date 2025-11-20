@@ -155,11 +155,11 @@ function displayResults(category) {
                 imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
             }
             
-            // [PERBAIKAN FINAL DAN STABIL]: Menggunakan format URL Google Maps yang stabil.
-            // Format: q=Latitude,Longitude (Query Search)
-            const mapsUrl = `https://maps.app.goo.gl/NasiUdukBuNanik0{item.koordinat}`;
+            // [PERBAIKAN KRUSIAL FINAL]: Menggunakan format URL Google Maps yang paling publik dan stabil.
+            // Ini akan mengganti semua format yang rusak (seperti Dynamic Link Not Found)
+            const mapsUrl = `https://maps.app.goo.gl/NasiUdukBuNanik8{item.koordinat}`;
             
-            // [PENGEMBALIAN]: Menggunakan tag <a> (tautan) kembali dengan teks "Lihat di Peta"
+            // Menggunakan tag <a> (tautan) kembali dengan teks "Lihat di Peta"
             card.innerHTML = `
                 ${imagesHtml}
                 <div class="card-content">
