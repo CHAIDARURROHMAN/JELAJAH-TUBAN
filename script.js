@@ -6,7 +6,6 @@ const dataWisataTuban = {
             deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
             gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.png"],
             lokasi: "Jalan Raya Tuban-Semarang, Desa Panyuran, Palang",
-            // Koordinat Pantai Kelapa sudah sangat detail
             koordinat: "-6.896359464703487,112.08915280130618" 
         },
         { 
@@ -14,7 +13,6 @@ const dataWisataTuban = {
             deskripsi: "Air terjun yang indah dengan kolam biru, cocok untuk fotografi.", 
             gambar: ["Nglirip1.jpg", "Nglirip2.jpg"],
             lokasi: "Desa Mulyoagung, Kecamatan Singgahan",
-            // Menggunakan koordinat yang lebih akurat
             koordinat: "-7.018000,111.750500"
         },
         { 
@@ -156,8 +154,7 @@ function displayResults(category) {
             }
             
             // [PERBAIKAN KRUSIAL FINAL]: Menggunakan format URL Google Maps yang paling publik dan stabil.
-            // Ini akan mengganti semua format yang rusak (seperti Dynamic Link Not Found)
-            const mapsUrl = `https://maps.app.goo.gl/NasiUdukBuNanik8{item.koordinat}`;
+            const mapsUrl = `https://maps.app.goo.gl/SateLilitIkanTuban1{item.koordinat}`;
             
             // Menggunakan tag <a> (tautan) kembali dengan teks "Lihat di Peta"
             card.innerHTML = `
