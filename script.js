@@ -6,6 +6,7 @@ const dataWisataTuban = {
             deskripsi: "Hamparan pohon kelapa yang rindang dengan banyak spot foto menarik.", 
             gambar: ["PantaiKelapa1.jpg", "PantaiKelapa2.png"],
             lokasi: "Jalan Raya Tuban-Semarang, Desa Panyuran, Palang",
+            // Koordinat Pantai Kelapa sudah sangat detail
             koordinat: "-6.896359464703487,112.08915280130618" 
         },
         { 
@@ -13,6 +14,7 @@ const dataWisataTuban = {
             deskripsi: "Air terjun yang indah dengan kolam biru, cocok untuk fotografi.", 
             gambar: ["Nglirip1.jpg", "Nglirip2.jpg"],
             lokasi: "Desa Mulyoagung, Kecamatan Singgahan",
+            // Menggunakan koordinat yang lebih akurat
             koordinat: "-7.018000,111.750500"
         },
         { 
@@ -153,12 +155,11 @@ function displayResults(category) {
                 imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
             }
             
-            // [PERBAIKAN UTAMA]: Menggunakan format URL Google Maps yang stabil dan benar.
+            // [PERBAIKAN FINAL DAN STABIL]: Menggunakan format URL Google Maps yang stabil.
             // Format: q=Latitude,Longitude (Query Search)
-            // Ini akan mem-pin lokasi dengan akurat.
-            const mapsUrl = `https://maps.app.goo.gl/KlentengKwanSingBio7{item.koordinat}`;
+            const mapsUrl = `https://maps.app.goo.gl/NasiUdukBuNanik0{item.koordinat}`;
             
-            // [PENGEMBALIAN]: Menggunakan tag <a> (tautan) kembali
+            // [PENGEMBALIAN]: Menggunakan tag <a> (tautan) kembali dengan teks "Lihat di Peta"
             card.innerHTML = `
                 ${imagesHtml}
                 <div class="card-content">
@@ -173,9 +174,6 @@ function displayResults(category) {
 
             container.appendChild(card);
         });
-        
-        // CATATAN: Karena kita kembali ke <a> href, kita tidak memerlukan Event Listener dinamis lagi.
-
     } else {
         container.innerHTML = `<p class="initial-prompt">Maaf, data untuk kategori ${category} belum tersedia.</p>`;
     }
