@@ -153,8 +153,9 @@ function displayResults(category) {
                 imagesHtml = `<img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='images/placeholder.jpg';">`;
             }
             
-            // [PERBAIKAN KRUSIAL FINAL]: Menggunakan format URL Google Maps yang paling publik dan stabil.
-            const mapsUrl = `https://maps.app.goo.gl/SateLilitIkanTuban1{item.koordinat}`;
+            // [PERBAIKAN MUTLAK]: Menggunakan format URL Google Maps yang paling stabil.
+            // Koordinat dipisahkan koma, lalu diikuti dengan angka zoom (misalnya 15z).
+            const mapsUrl = `https://maps.app.goo.gl/SateLilitIkanTuban5{item.koordinat},15z`;
             
             // Menggunakan tag <a> (tautan) kembali dengan teks "Lihat di Peta"
             card.innerHTML = `
