@@ -1,12 +1,12 @@
-// Data Wisata Tuban yang Sederhana dan Stabil
+// Data Wisata Tuban yang Diperluas dan Stabil
 const dataWisataTuban = {
     wisata: [
         { 
             nama: "Pantai Kelapa", 
             deskripsi: "Hamparan pohon kelapa yang rindang, populer untuk spot foto dan bersantai.", 
-            gambar: "PantaiKelapa.jpg", // Asumsikan Anda punya file ini di folder 'images'
+            gambar: "PantaiKelapa.jpg",
             lokasi: "Desa Panyuran, Palang, Tuban",
-            query: "Pantai Kelapa Tuban" // Query pencarian stabil
+            query: "Pantai Kelapa Tuban" 
         },
         { 
             nama: "Air Terjun Nglirip", 
@@ -35,6 +35,41 @@ const dataWisataTuban = {
             gambar: "MasjidAgung.jpg",
             lokasi: "Jl. Bonang, Kutorejo, Tuban",
             query: "Masjid Agung Tuban"
+        },
+        {
+            nama: "Sendang Asmoro",
+            deskripsi: "Kolam alami dengan air jernih dan suasana hutan yang sejuk. Populer untuk berenang.",
+            gambar: "SendangAsmoro.jpg",
+            lokasi: "Desa Ngino, Kecamatan Semanding",
+            query: "Sendang Asmoro Tuban"
+        },
+        {
+            nama: "Wisata Mangrove Center",
+            deskripsi: "Kawasan hutan bakau yang dilengkapi jembatan kayu untuk *tracking* dan edukasi lingkungan.",
+            gambar: "MangroveCenter.jpg",
+            lokasi: "Jenu, Tuban",
+            query: "Wisata Mangrove Center Tuban"
+        },
+        {
+            nama: "Air Terjun Kedungjambe",
+            deskripsi: "Air terjun tersembunyi dengan kolam yang tenang, membutuhkan *trekking* ringan.",
+            gambar: "Kedungjambe.jpg",
+            lokasi: "Desa Boto, Kecamatan Semanding",
+            query: "Air Terjun Kedungjambe Tuban"
+        },
+        {
+            nama: "Makam Sunan Bonang",
+            deskripsi: "Kompleks makam salah satu Wali Songo, menjadi pusat ziarah utama di Tuban.",
+            gambar: "SunanBonang.jpg",
+            lokasi: "Kutorejo, Tuban",
+            query: "Makam Sunan Bonang Tuban"
+        },
+        {
+            nama: "Pantai Sowan",
+            deskripsi: "Pantai dengan pepohonan pinus dan perahu nelayan, menawarkan pemandangan matahari terbenam.",
+            gambar: "PantaiSowan.jpg",
+            lokasi: "Desa Bogorejo, Bancar",
+            query: "Pantai Sowan Tuban"
         }
     ]
 };
@@ -44,22 +79,20 @@ function displayResults() {
     const container = document.getElementById('results-container');
     const items = dataWisataTuban.wisata;
 
-    // Bersihkan konten sebelumnya dan mulai mengisi
-    container.innerHTML = '';
+    container.innerHTML = ''; // Bersihkan konten sebelumnya
 
     if (items && items.length > 0) {
         items.forEach(item => {
             const card = document.createElement('div');
             card.className = 'result-card';
             
-            // LOGIKA URL YANG STABIL (Kunci solusi)
-            // Menggunakan query pencarian nama tempat yang jelas dan mudah diindeks Google
-            // encodeURIComponent memastikan spasi dan karakter lain aman dalam URL
-            const mapsUrl = `https://maps.app.goo.gl/KlentengKwanSingBio7${encodeURIComponent(item.query)}`;
+            // SOLUSI FINAL UNTUK URL: Menggunakan format kanonikal Google Maps API
+            // Format ini 100% aman dan tidak rentan terhadap short-link/proxy error.
+            const mapsUrl = "https://maps.app.goo.gl/KlentengKwanSingBio7" + encodeURIComponent(item.query);
             
             card.innerHTML = `
                 <div class="card-images">
-                    <img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='http://googleusercontent.com/26';">
+                    <img src="images/${item.gambar}" alt="${item.nama}" onerror="this.onerror=null;this.src='http://googleusercontent.com/28';">
                 </div>
                 <div class="card-content">
                     <h3>${item.nama}</h3>
